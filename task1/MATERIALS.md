@@ -11,3 +11,4 @@
 + [[ENG] Java IO docs](https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html)
 + [Руководство по Maven](http://www.apache-maven.ru/index.html)
 + [Многомодульный Java-проект с Gradle. Шаг за шагом - Хабр](https://habr.com/ru/post/225189/)
++ [Основные отличия Java IO и Java NIO - Хабр](https://habr.com/ru/post/235585/)
