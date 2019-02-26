@@ -6,3 +6,5 @@
 + [Классы Socket и ServerSocket, или «Алло, сервер? Ты меня слышишь?» - Java Rush](https://javarush.ru/groups/posts/654-klassih-socket-i-serversocket-ili-allo-server-tih-menja-slihshishjh)
 + [Как это работает в мире java. Пул потоков - Хабр](https://habr.com/ru/post/326146/)
 + [Обзор java.util.concurrent.* - Хабр](https://habr.com/ru/company/luxoft/blog/157273/)
++ [JUnit / Тестирование в Java - Java Rush](https://javarush.ru/groups/posts/605-junit)
++ [Тестирование в Java. JUnit - Хабр](https://habr.com/ru/post/120101/)
