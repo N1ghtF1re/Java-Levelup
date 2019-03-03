@@ -2,7 +2,7 @@
 
 Внимание! Критично относитесь к прочитанной информации, особенно к примерам в статьях. В основном они приведены для большей наглядности и могут быть не самыми оптимальными решениями и содержать некоторые упущения(отсуствие обработки ошибок и т.д.)
 
-+ [Пренезтация](1.pdf)
++ [Презентация](1.pdf)
 + [Многопоточность в Java - Хабр](https://habr.com/ru/post/164487/)
 + [Многопоточность в Java: суть, «плюсы» и частые ловушки - Java Rush](https://javarush.ru/groups/posts/1992-mnogopotochnostjh-v-java-sutjh-pljusih-i-chastihe-lovushki-)
 + [Взаимная блокировка (deadlock) в Java и методы борьбы с ней - Java Rush](https://javarush.ru/groups/posts/1422-vzaimnaja-blokirovkadeadlock-v-java-i-metodih-borjhbih-s-ney)
