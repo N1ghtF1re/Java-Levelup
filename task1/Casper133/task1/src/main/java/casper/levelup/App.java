@@ -6,10 +6,10 @@ public class App {
         System.out.println("Для начала войдите под каким-либо никнеймом (/reg Nickname).");
         System.out.println("В любой момент можно выйти (/exit).\n");
 
-        Thread consoleServiceThread = new Thread(new ConsoleService());
-        consoleServiceThread.start();
+        Thread consoleThread = new Thread(new ConsoleThread());
+        consoleThread.start();
 
-        Thread fileServiceThread = new Thread(new FileService());
-        fileServiceThread.start();
+        Thread fileThread = new Thread(new FileThread());
+        fileThread.start();
     }
 }

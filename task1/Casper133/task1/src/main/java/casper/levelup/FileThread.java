@@ -1,6 +1,6 @@
 package casper.levelup;
 
-public class FileService implements Runnable {
+public class FileThread implements Runnable {
     @Override
     public void run() {
 

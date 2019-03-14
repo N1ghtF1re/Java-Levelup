@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ConsoleService implements Runnable {
+public class ConsoleThread implements Runnable {
     @Override
     public void run() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
