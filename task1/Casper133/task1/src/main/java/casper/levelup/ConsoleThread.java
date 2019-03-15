@@ -1,16 +1,16 @@
 package casper.levelup;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class ConsoleThread implements Runnable {
     @Override
     public void run() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
-            String username;
+            String username = null;
             boolean isUserReg = false;
 
             Pattern loginPattern = Pattern.compile("/login .+", Pattern.CASE_INSENSITIVE);
@@ -26,6 +26,15 @@ public class ConsoleThread implements Runnable {
                     } else {
                         System.out.println("Без логина чат недоступен.\nВведите команду \"/login USERNAME\".\n");
                     }
+                } else {
+                    FileWriter fileWriter = new FileWriter("files/Messages.txt", true);
+                    Date dateNow = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+                    String time = dateFormat.format(dateNow);
+                    String fileMessage = "[" + time + "] " + username + ": " + message + "\n";
+                    fileWriter.write(fileMessage);
+                    fileWriter.flush();
+                    fileWriter.close();
                 }
 
                 message = bufferedReader.readLine().trim();
