@@ -3,6 +3,8 @@ package casper.levelup;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FileThread implements Runnable {
     @Override
@@ -11,24 +13,28 @@ public class FileThread implements Runnable {
         try {
             String fileBeforePause = "";
             while (true) {
-                try {
-                    Thread.sleep(1000);
-                    String fileAfterPause = new String(Files.readAllBytes(Paths.get("files/Messages.txt")));
+                Thread.sleep(1000);
+                String fileAfterPause = new String(Files.readAllBytes(Paths.get("files/Messages.txt")));
 
-                    if (fileAfterPause.equals(fileBeforePause)) {
-                        System.out.println("Files equal");
-                    } else {
-                        System.out.println("Files not equal");
-                    }
+                if (!fileAfterPause.equals(fileBeforePause)) {
+                    fileBeforePause = escapeSpecialRegexChars(fileBeforePause);
 
-                    fileBeforePause = fileAfterPause;
+                    Pattern filePattern = Pattern.compile(fileBeforePause);
+                    Matcher matcher = filePattern.matcher(fileAfterPause);
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    String newMessages = matcher.replaceFirst("");
+                    System.out.println(newMessages);
                 }
+
+                fileBeforePause = fileAfterPause;
             }
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private String escapeSpecialRegexChars(String str) {
+        Pattern SPECIAL_REGEX_CHARS = Pattern.compile("[{}()\\[\\].+*?^$\\\\|]");
+        return SPECIAL_REGEX_CHARS.matcher(str).replaceAll("\\\\$0");
     }
 }
