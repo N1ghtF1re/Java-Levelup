@@ -13,20 +13,9 @@ public class ConsoleThread implements Runnable {
             String username = null;
             boolean isUserReg = false;
 
-            Pattern loginPattern = Pattern.compile("/login .+", Pattern.CASE_INSENSITIVE);
-            Pattern spacePattern = Pattern.compile("\\s");
-
             String message = bufferedReader.readLine().trim();
             while (!message.equalsIgnoreCase("/exit")) {
-                if (!isUserReg) {
-                    if (loginPattern.matcher(message).find()) {
-                        username = spacePattern.split(message, 2)[1];
-                        isUserReg = true;
-                        System.out.println("Привет, " + username + "!\n");
-                    } else {
-                        System.out.println("Без логина чат недоступен.\nВведите команду \"/login USERNAME\".\n");
-                    }
-                } else {
+                if (isUserReg) {
                     FileWriter fileWriter = new FileWriter("files/Messages.txt", true);
                     Date dateNow = new Date();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -35,6 +24,17 @@ public class ConsoleThread implements Runnable {
                     fileWriter.write(fileMessage);
                     fileWriter.flush();
                     fileWriter.close();
+                } else {
+                    Pattern loginPattern = Pattern.compile("/login .+", Pattern.CASE_INSENSITIVE);
+                    Pattern spacePattern = Pattern.compile("\\s");
+
+                    if (loginPattern.matcher(message).find()) {
+                        username = spacePattern.split(message, 2)[1];
+                        isUserReg = true;
+                        System.out.println("Привет, " + username + "!\n");
+                    } else {
+                        System.out.println("Без логина чат недоступен.\nВведите команду \"/login USERNAME\".\n");
+                    }
                 }
 
                 message = bufferedReader.readLine().trim();
