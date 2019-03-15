@@ -12,18 +12,10 @@ public class ConsoleThread implements Runnable {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String username = null;
             boolean isUserReg = false;
-            boolean isFileThreadStarted = false;
 
             String message = bufferedReader.readLine().trim();
             while (!message.equalsIgnoreCase("/exit")) {
                 if (isUserReg) {
-                    if (!isFileThreadStarted) {
-                        Thread fileThread = new Thread(new FileThread());
-                        fileThread.start();
-                        isFileThreadStarted = true;
-                        System.out.println("File thread started");
-                    }
-
                     FileWriter fileWriter = new FileWriter("files/Messages.txt", true);
                     Date dateNow = new Date();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -39,6 +31,10 @@ public class ConsoleThread implements Runnable {
                     if (loginPattern.matcher(message).find()) {
                         username = spacePattern.split(message, 2)[1];
                         isUserReg = true;
+
+                        Thread fileThread = new Thread(new FileThread());
+                        fileThread.start();
+
                         System.out.println("Привет, " + username + "!\n");
                     } else {
                         System.out.println("Без логина чат недоступен.\nВведите команду \"/login USERNAME\".\n");
