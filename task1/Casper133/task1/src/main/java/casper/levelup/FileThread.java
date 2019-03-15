@@ -1,5 +1,6 @@
 package casper.levelup;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,6 +14,13 @@ public class FileThread implements Runnable {
             String fileBeforePause = "";
             while (true) {
                 Thread.sleep(1000);
+                File messagesFile = new File("files/Messages.txt");
+
+                if (!messagesFile.exists()) {
+                    messagesFile.getParentFile().mkdirs();
+                    messagesFile.createNewFile();
+                }
+
                 String fileAfterPause = new String(Files.readAllBytes(Paths.get("files/Messages.txt")));
 
                 if (!fileAfterPause.equals(fileBeforePause)) {

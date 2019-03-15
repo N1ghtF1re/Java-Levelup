@@ -1,6 +1,5 @@
 package casper.levelup;
 
-
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,13 +10,20 @@ public class ConsoleThread implements Runnable {
     public void run() {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String username = null;
-            boolean isUserReg = false;
+            boolean isUserLoggedIn = false;
             Thread fileThread = null;
 
             String message = bufferedReader.readLine().trim();
             while (!message.equalsIgnoreCase("/exit")) {
-                if (isUserReg) {
-                    FileWriter fileWriter = new FileWriter("files/Messages.txt", true);
+                if (isUserLoggedIn) {
+                    File messagesFile = new File("files/Messages.txt");
+
+                    if (!messagesFile.exists()) {
+                        messagesFile.getParentFile().mkdirs();
+                        messagesFile.createNewFile();
+                    }
+
+                    FileWriter fileWriter = new FileWriter(messagesFile, true);
                     Date dateNow = new Date();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
                     String time = dateFormat.format(dateNow);
@@ -31,7 +37,7 @@ public class ConsoleThread implements Runnable {
 
                     if (loginPattern.matcher(message).find()) {
                         username = spacePattern.split(message, 2)[1];
-                        isUserReg = true;
+                        isUserLoggedIn = true;
 
                         fileThread = new Thread(new FileThread());
                         fileThread.start();
