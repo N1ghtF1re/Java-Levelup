@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 public class FileThread implements Runnable {
     @Override
     public void run() {
-        // try (BufferedReader fileReader = new BufferedReader(new FileReader("files/Messages.txt"))) {
         try {
             String fileBeforePause = "";
             while (true) {
@@ -28,8 +27,10 @@ public class FileThread implements Runnable {
 
                 fileBeforePause = fileAfterPause;
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.out.println("Удачного дня!");
         }
     }
 

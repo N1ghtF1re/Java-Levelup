@@ -12,6 +12,7 @@ public class ConsoleThread implements Runnable {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String username = null;
             boolean isUserReg = false;
+            Thread fileThread = null;
 
             String message = bufferedReader.readLine().trim();
             while (!message.equalsIgnoreCase("/exit")) {
@@ -32,7 +33,7 @@ public class ConsoleThread implements Runnable {
                         username = spacePattern.split(message, 2)[1];
                         isUserReg = true;
 
-                        Thread fileThread = new Thread(new FileThread());
+                        fileThread = new Thread(new FileThread());
                         fileThread.start();
 
                         System.out.println("Привет, " + username + "!\n");
@@ -44,7 +45,9 @@ public class ConsoleThread implements Runnable {
                 message = bufferedReader.readLine().trim();
             }
 
-            System.out.println("Удачного дня!");
+            if (fileThread != null) {
+                fileThread.interrupt();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
