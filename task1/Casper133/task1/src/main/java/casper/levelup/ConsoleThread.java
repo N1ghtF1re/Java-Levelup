@@ -12,10 +12,18 @@ public class ConsoleThread implements Runnable {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String username = null;
             boolean isUserReg = false;
+            boolean isFileThreadStarted = false;
 
             String message = bufferedReader.readLine().trim();
             while (!message.equalsIgnoreCase("/exit")) {
                 if (isUserReg) {
+                    if (!isFileThreadStarted) {
+                        Thread fileThread = new Thread(new FileThread());
+                        fileThread.start();
+                        isFileThreadStarted = true;
+                        System.out.println("File thread started");
+                    }
+
                     FileWriter fileWriter = new FileWriter("files/Messages.txt", true);
                     Date dateNow = new Date();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

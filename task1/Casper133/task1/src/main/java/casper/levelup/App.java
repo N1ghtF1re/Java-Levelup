@@ -8,8 +8,5 @@ public class App {
 
         Thread consoleThread = new Thread(new ConsoleThread());
         consoleThread.start();
-
-        Thread fileThread = new Thread(new FileThread());
-        fileThread.start();
     }
 }
