@@ -8,3 +8,5 @@
 + [Обзор java.util.concurrent.* - Хабр](https://habr.com/ru/company/luxoft/blog/157273/)
 + [JUnit / Тестирование в Java - Java Rush](https://javarush.ru/groups/posts/605-junit)
 + [Тестирование в Java. JUnit - Хабр](https://habr.com/ru/post/120101/)
++ [Цикл статей "Структуры данных в картинках" - очень рекомендую](https://habr.com/ru/users/tarzan82/posts/)
++ [[ENG] Java Collections](https://www.edureka.co/blog/java-collections/)
