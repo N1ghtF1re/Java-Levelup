@@ -25,7 +25,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>casper.levelup.Server</mainClass>
+                            <mainClass>main.casper.levelup.ServerRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
