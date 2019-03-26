@@ -14,7 +14,7 @@ public class Client extends AbstractClient {
 
     Client() {
         System.out.println("Добро пожаловать!\n");
-        System.out.println("Для начала войдите в чат (/login USERNAME).");
+        System.out.println("Для начала войдите в чат (/reg USERNAME).");
         System.out.println("В любой момент можно выйти (/exit).\n");
 
         connectToServer();
@@ -42,7 +42,7 @@ public class Client extends AbstractClient {
             
             serverConnector.sendMessage(message);
 
-            if (message.equalsIgnoreCase("/exit")) {
+            if (message.equals("/exit")) {
                 System.out.println("Удачного дня!");
                 closeAll();
             }
