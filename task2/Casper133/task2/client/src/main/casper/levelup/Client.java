@@ -13,6 +13,10 @@ public class Client extends AbstractClient {
     private boolean clientStopped = false;
 
     Client() {
+        System.out.println("Добро пожаловать!\n");
+        System.out.println("Для начала войдите в чат (/login USERNAME).");
+        System.out.println("В любой момент можно выйти (/exit).\n");
+
         connectToServer();
 
         ServerReader serverReader = new ServerReader(this);
@@ -34,9 +38,12 @@ public class Client extends AbstractClient {
         String message = messageReader.readMessage();
 
         if (message != null) {
+            System.out.println();
+            
             serverConnector.sendMessage(message);
 
             if (message.equalsIgnoreCase("/exit")) {
+                System.out.println("Удачного дня!");
                 closeAll();
             }
         }
