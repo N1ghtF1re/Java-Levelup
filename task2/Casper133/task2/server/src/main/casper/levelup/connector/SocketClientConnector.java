@@ -2,7 +2,8 @@ package main.casper.levelup.connector;
 
 import main.casper.levelup.user.User;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.net.ServerSocket;
 
 public class SocketClientConnector implements ClientConnector {
@@ -22,11 +23,10 @@ public class SocketClientConnector implements ClientConnector {
     @Override
     public void sendMessage(User user, String message) {
         try {
-            BufferedWriter outWriter = new BufferedWriter(new OutputStreamWriter(user.getSocket().getOutputStream()));
+            BufferedWriter outWriter = user.getOutWriter();
             outWriter.write(message);
             outWriter.newLine();
             outWriter.flush();
-            outWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

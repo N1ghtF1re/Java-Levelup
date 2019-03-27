@@ -10,9 +10,10 @@ import java.util.List;
 
 public class Server {
     private List<User> allUsers = Collections.synchronizedList(new LinkedList<User>());
+    private SocketClientConnector clientConnector;
 
     Server() {
-        SocketClientConnector clientConnector = new SocketClientConnector();
+        clientConnector = new SocketClientConnector();
         clientConnector.initConnection();
 
         ConnectionHandler connectionHandler = new ConnectionHandler(this, clientConnector.getServerSocket());
@@ -26,5 +27,9 @@ public class Server {
 
     public void setAllUsers(List<User> allUsers) {
         this.allUsers = allUsers;
+    }
+
+    public SocketClientConnector getClientConnector() {
+        return clientConnector;
     }
 }

@@ -10,9 +10,9 @@ public class MessageInvoker {
     private String message;
 
     public MessageInvoker(User user, Server server, String message) {
-        regCommand = new RegCommand(user, message);
+        regCommand = new RegCommand(user, message, server.getClientConnector());
         exitCommand = new ExitCommand(user, server);
-        commonMessage = new CommonMessage(user, message);
+        commonMessage = new CommonMessage(user, message, server.getClientConnector());
 
         this.message = message;
     }

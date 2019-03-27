@@ -19,7 +19,7 @@ public class ExitCommand implements Command {
         List<User> allUsers = server.getAllUsers();
         allUsers.remove(user);
         server.setAllUsers(allUsers);
-
-        // TODO: Когда клиент отключается завершать поток MessageHandler
+        user.setUserExit(true);
+        user.closeAll();
     }
 }
