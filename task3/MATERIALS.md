@@ -8,4 +8,5 @@
 + [REST API Best Practices - Хабр](https://habr.com/ru/post/351890/)
 + [How do I deploy a WAR file in Tomcat?](http://www.jguru.com/faq/view.jsp?EID=123229)
 + [Intellij IDEA деплой на Tomcat](https://devcolibri.com/intellij-idea-%D0%B4%D0%B5%D0%BF%D0%BB%D0%BE%D0%B9-%D0%BD%D0%B0-tomcat/)
-
++ [Крутой сервис чтобы прошариться в ветвлениях в гите](https://learngitbranching.js.org/)
++ [Какой-то курс по гиту](https://githowto.com/ru)
