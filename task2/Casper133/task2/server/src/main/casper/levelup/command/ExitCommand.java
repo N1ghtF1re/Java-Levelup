@@ -20,6 +20,7 @@ public class ExitCommand implements Command {
         allUsers.remove(user);
         server.setAllUsers(allUsers);
         user.setUserExit(true);
+        user.getChatSession().disconnect(user);
         user.closeAll();
     }
 }

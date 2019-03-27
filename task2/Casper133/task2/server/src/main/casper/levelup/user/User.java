@@ -1,5 +1,7 @@
 package main.casper.levelup.user;
 
+import main.casper.levelup.session.ChatSession;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Collections;
@@ -10,6 +12,8 @@ public class User {
     private Socket socket;
     private BufferedReader inReader;
     private BufferedWriter outWriter;
+    private ChatSession chatSession;
+
     private String username;
     private List<String> messages = Collections.synchronizedList(new LinkedList<String>());
     private boolean loggedIn = false;
@@ -43,6 +47,14 @@ public class User {
 
     public BufferedWriter getOutWriter() {
         return outWriter;
+    }
+
+    public ChatSession getChatSession() {
+        return chatSession;
+    }
+
+    public void setChatSession(ChatSession chatSession) {
+        this.chatSession = chatSession;
     }
 
     public String getUsername() {

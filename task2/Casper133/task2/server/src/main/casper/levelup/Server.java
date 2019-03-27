@@ -13,7 +13,7 @@ public class Server {
     private SocketClientConnector clientConnector;
 
     Server() {
-        clientConnector = new SocketClientConnector();
+        clientConnector = new SocketClientConnector(this);
         clientConnector.initConnection();
 
         ConnectionHandler connectionHandler = new ConnectionHandler(this, clientConnector.getServerSocket());

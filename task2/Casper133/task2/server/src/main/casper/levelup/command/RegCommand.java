@@ -21,6 +21,8 @@ public class RegCommand implements Command {
             user.setUsername(username);
             user.setLoggedIn(true);
             clientConnector.sendMessage(user, "Регистрация прошла успешно!\n");
+            System.out.println(username + " just registered");
+            clientConnector.createChatSession(user);
         } else {
             clientConnector.sendMessage(user, "Вы уже зарегистрированы!\n");
         }

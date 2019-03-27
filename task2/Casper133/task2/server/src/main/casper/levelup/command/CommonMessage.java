@@ -23,8 +23,9 @@ public class CommonMessage implements Command {
                 List<String> messages = user.getMessages();
                 messages.add(message);
                 user.setMessages(messages);
+            } else {
+                user.getChatSession().sendMessageInChatSession(user, message);
             }
-            // TODO: else передавать сообщения напрямую в чат-сессию
         } else {
             clientConnector.sendMessage(user,
                     "Вы не зарегистрированы! Для доступа к чату введите команду \"/reg USERNAME\"\n");
