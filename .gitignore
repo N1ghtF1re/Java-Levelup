@@ -1,1 +1,7 @@
 *.odp
+target
+out
+.settings
+.classpath
+.project
+.idea
