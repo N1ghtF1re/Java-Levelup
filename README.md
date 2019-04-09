@@ -9,7 +9,7 @@
 | Занятие #1 | [Полезные материалы](lesson1/MATERIALS.md) | [Условие](lesson1/TASK.md)|
 | Занятие #2 | [Полезные материалы](lesson2/MATERIALS.md) | [Условие](lesson2/TASK.md)|
 | Занятие #3 | [Полезные материалы](lesson3/MATERIALS.md) |                           |
-| Занятие #4 | [Полезные материалы](lesson4/MATERIALS.md) | [Условие](lesson5/TASK.md)|
+| Занятие #4 | [Полезные материалы](lesson4/MATERIALS.md) | [Условие](lesson4/TASK.md)|
 
 
 ## Как сдавать домашку:
